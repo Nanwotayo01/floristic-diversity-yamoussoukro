@@ -1,9 +1,10 @@
 ﻿cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
 title: "Floristic Diversity of Urban Forest Sites in Yamoussoukro, Côte d'Ivoire: Data and Analysis Workflow"
-message: "If you use this repository, please cite the associated scientific manuscript and this repository."
 type: dataset
 authors:
   - family-names: "Toure"
     given-names: "Nanwotayo Jacques"
     affiliation: "Côte d'Ivoire"
-repository-code: ""
+repository-code: "https://github.com/Nanwotayo01/floristic-diversity-yamoussoukro"
+url: "https://github.com/Nanwotayo01/floristic-diversity-yamoussoukro"
