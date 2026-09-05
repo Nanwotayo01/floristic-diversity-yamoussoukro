@@ -1083,16 +1083,6 @@ cevi_long = pd.DataFrame([
 ])
 write_csv(cevi_long, "cevi_components.csv")
 
-cevi_check = CEVI_PUBLISHED.merge(
-    cevi.reset_index()[["Site", "CEVI", "Native_or_nonintroduced_score", "IndVal_score"]],
-    on="Site", how="left"
-)
-cevi_check["CEVI_difference"] = cevi_check["CEVI"] - cevi_check["Published_CEVI"]
-cevi_check["Native_score_difference"] = cevi_check["Native_or_nonintroduced_score"] - cevi_check["Published_native_component_score"]
-cevi_check["IndVal_score_difference"] = cevi_check["IndVal_score"] - cevi_check["Published_IndVal_component_score"]
-write_csv(cevi_check, "cevi_reproduction_check.csv")
-
-
 # Published CEVI values are retained as a validation reference only. The original
 # analysis notebook does not contain the CEVI calculation, and the manuscript does
 # not provide a machine-readable species-level mapping for the
@@ -1106,6 +1096,15 @@ CEVI_PUBLISHED = pd.DataFrame({
     "Published_native_component_score": [67.26, 74.51, 100.00],
     "Published_IndVal_component_score": [42.11, 52.63, 100.00],
 })
+
+cevi_check = CEVI_PUBLISHED.merge(
+    cevi.reset_index()[["Site", "CEVI", "Native_or_nonintroduced_score", "IndVal_score"]],
+    on="Site", how="left"
+)
+cevi_check["CEVI_difference"] = cevi_check["CEVI"] - cevi_check["Published_CEVI"]
+cevi_check["Native_score_difference"] = cevi_check["Native_or_nonintroduced_score"] - cevi_check["Published_native_component_score"]
+cevi_check["IndVal_score_difference"] = cevi_check["IndVal_score"] - cevi_check["Published_IndVal_component_score"]
+write_csv(cevi_check, "cevi_reproduction_check.csv")
 
 # =============================================================================
 # 18. FINAL AUDIT
